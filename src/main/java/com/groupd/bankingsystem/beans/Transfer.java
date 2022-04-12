@@ -1,12 +1,6 @@
 package com.groupd.bankingsystem.beans;
 
 import javax.validation.constraints.NotNull;
-
-import java.sql.Date;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -22,85 +16,73 @@ import javax.validation.constraints.Size;
 
 public class Transfer {
 	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private int Accountno;
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
+	private int account_no;
+
+	private float balance;
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
+	private String account_type;
 	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String From;
+	@Size(min = 1, message = "required")
+	private float amount;
 
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String To;
+	private int userId;
+
+	private int account_id;
+
+	public int getAccount_no() {
+		return account_no;
+	}
+
+	public void setAccount_no(int account_no) {
+		this.account_no = account_no;
+	}
+
+	public float getBalance() {
+		return balance;
+	}
+
+	public void setBalance(float balance) {
+		this.balance = balance;
+	}
+
+	public String getAccount_type() {
+		return account_type;
+	}
+
+	public void setAccount_type(String account_type) {
+		this.account_type = account_type;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public int getAccount_id() {
+		return account_id;
+	}
+
+	public void setAccount_id(int account_id) {
+		this.account_id = account_id;
+	}
+
+	public float getAmount() {
+		return amount;
+	}
+
+	public void setAmount(float amount) {
+		this.amount = amount;
+	}
 	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private Date date;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String TransactionType;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private int id;
-
-	public int getAccountno() {
-		return Accountno;
-	}
-
-	public void setAccountno(int accountno) {
-		Accountno = accountno;
-	}
-
-	public String getFrom() {
-		return From;
-	}
-
-	public void setFrom(String from) {
-		From = from;
-	}
-
-	public String getTo() {
-		return To;
-	}
-
-	public void setTo(String to) {
-		To = to;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public String getTransactionType() {
-		return TransactionType;
-	}
-
-	public void setTransactionType(String transactionType) {
-		TransactionType = transactionType;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
 
 
 }

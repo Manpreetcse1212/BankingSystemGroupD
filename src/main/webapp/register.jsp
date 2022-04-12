@@ -1,60 +1,52 @@
+<link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">
 <h1>Create</h1>
 <form method="POST" action="saveUser">
-	<table>
+<form:form method="POST" modelAttribute="login" action="saveUser">
+	<table align="center">
 		<tr>
 			<td>Customer Name:</td>
-			<td><input name="customername" /></td>
+			<td><form:input path="customername" /></td>
 		</tr>
 		<tr>
 			<td>Father Name:</td>
-			<td><input name="fathername"  type="text"/></td>
+			<td><form:input path="fathername" /></td>
 		</tr>
-		
 		<tr>
-			<td>Gender:</td>
-			<td><input name="gender"  type="text"/></td>
+			<td><td>Gender:</td></td>
+			<td><form:input path="gender" /></td>
 		</tr>
-
 		<tr>
 			<td>Email:</td>
-			<td><input name="email" type="text" /></td>
+			<td><form:input path="email" /></td>
 		</tr>
-
 		<tr>
 			<td>Address:</td>
-			<td><input name="address" type="text" /></td>
+			<td><form:input path="address" /></td>
 		</tr>
-
 		<tr>
 			<td>Postal code:</td>
-			<td><input name="postalcode" type="text" /></td>
+			<td><form:input path="postalcode" /></td>
 		</tr>
-
 		<tr>
 			<td>Province:</td>
-			<td><input name="province" type="text" /></td>
+			<td><form:input path="province" /></td>
 		</tr>
-
-
 		<tr>
 			<td>Account No:</td>
-			<td><input name="accountno"  type="text"/></td>
+			<td><form:input path="accountno" /></td>
 		</tr>
-		
 		<tr>
 			<td>Username:</td>
-			<td><input name="username"  type="text"/></td>
+			<td><form:input path="username" /></td>
 		</tr>
-		
 		<tr>
 			<td>Password:</td>
-			<td><input name="password"  type="text"/></td>
+			<td><form:password path="password" /></td>
 		</tr>
-
 		<tr>
 			<td></td>
 			<td><input type="submit" value="Create" /></td>
 		</tr>
-		
 	</table>
-</form>
+</form:form>
+	

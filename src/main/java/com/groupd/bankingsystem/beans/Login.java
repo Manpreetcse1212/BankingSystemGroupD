@@ -29,26 +29,54 @@ public class Login {
 	@NotNull(message="required field")
 	private String Password;
 	
+	
 	private int userId;
 	
+	@Size(min=5,message="required")
+	@Size(max=20,message="required")
+	@NotNull(message="required field")
 	private String customerName;
 	
+	@Size(min=5,message="required")
+	@Size(max=20,message="required")
+	@NotNull(message="required field")
 	private String fatherName;
 	
+	@Size(min=5,message="required")
+	@Size(max=20,message="required")
+	@NotNull(message="required field")
 	private String Gender;
 	
+	@Size(min=5,message="required")
+	@Size(max=20,message="required")
+	@NotNull(message="required field")
 	private String Email;
 	
+	@Size(min=5,message="required")
+	@Size(max=20,message="required")
+	@NotNull(message="required field")
 	private String Address;
 	
+	@Size(min=5,message="required")
+	@Size(max=20,message="required")
+	@NotNull(message="required field")
 	private String Postalcode;
 	
+	@Size(min=5,message="required")
+	@Size(max=20,message="required")
+	@NotNull(message="required field")
 	private String Province;
 	
+	@Size(min=5,message="required")
+	@Size(max=20,message="required")
+	@NotNull(message="required field")
 	private int Accountno;
 	
 	private float balance;
 	
+	@Size(min=5,message="required")
+	@Size(max=20,message="required")
+	@NotNull(message="required field")
 	private String Accounttype;
 	
 	private int Accountid;

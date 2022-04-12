@@ -7,43 +7,51 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Date: 15.03.2022
- * Group D 
- * Member1: Manpreet kaur
- * Member2: Manpreet Kaur
- * Member3: Bhumikaben Manubhai Patel
- * Member4: Ashikkumar Nareshbhai Patel
- * Member5: Hardeep Kaur Chahal 
- * bean class for Book table
+ * Date: 15.03.2022 Group D Member1: Manpreet kaur Member2: Manpreet Kaur
+ * Member3: Bhumikaben Manubhai Patel Member4: Ashikkumar Nareshbhai Patel
+ * Member5: Hardeep Kaur Chahal bean class for Book table
  */
 
 public class Paybills {
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String Username;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String Password;
 
-	public String getUserName() {
-		return Username;
+	private String payee_name;
+
+	private int account_no;
+
+	private float amount;
+
+	private int account_id;
+
+	public int getAccount_id() {
+		return account_id;
 	}
 
-	public void setUserName(String Username) {
-		this.Username=Username;
-	}
-	
-	public String getPassword() {
-		return Password;
+	public void setAccount_id(int account_id) {
+		this.account_id = account_id;
 	}
 
-	public void setPassword(String Password) {
-		this.Password=Password;
+	public String getPayee_name() {
+		return payee_name;
 	}
-	
+
+	public void setPayee_name(String payee_name) {
+		this.payee_name = payee_name;
+	}
+
+	public int getAccount_no() {
+		return account_no;
+	}
+
+	public void setAccount_no(int account_no) {
+		this.account_no = account_no;
+	}
+
+	public float getAmount() {
+		return amount;
+	}
+
+	public void setAmount(float amount) {
+		this.amount = amount;
+	}
 
 }

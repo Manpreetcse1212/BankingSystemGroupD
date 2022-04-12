@@ -1,22 +1,15 @@
 package com.groupd.bankingsystem.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
-import com.groupd.bankingsystem.beans.Login;
+import com.groupd.bankingsystem.beans.Paybills;
+import com.groupd.bankingsystem.beans.Transfer;
 
 /**
- * Date: 15.03.2022 Group D 
- * Member1: Manpreet kaur 
- * Member2: Manpreet Kaur
- * Member3: Bhumikaben Manubhai Patel 
- * Member4: Ashikkumar Nareshbhai Patel
- * Member5: Hardeep Kaur Chahal 
- * DAO class for Login table
+ * Date: 15.03.2022 Group D Member1: Manpreet kaur Member2: Manpreet Kaur
+ * Member3: Bhumikaben Manubhai Patel Member4: Ashikkumar Nareshbhai Patel
+ * Member5: Hardeep Kaur Chahal DAO class for Login table
  */
 
 public class PaybillsDao {
@@ -27,32 +20,20 @@ public class PaybillsDao {
 		this.template = template;
 	}
 
-//	login, register
-//	public boolean user_exists(Login login) {
-//		String sql = "select * from login where username=? and password=?";
-//
-//		List<Login> users = template.query("select username, password from login where username='" + login.getUserName()
-//				+ "' and password='" + login.getPassword() + "'", new RowMapper<Login>() {
-//					public Login mapRow(ResultSet rs, int row) throws SQLException {
-//						Login e = new Login();
-//						e.setUserName(rs.getString(1));
-//						e.setPassword(rs.getString(2));
-//						return e;
-//					}
-//				});
-//		if (users.size() > 0) {
-//			
-//				return true;
-//		} else {
-//			return false;
-//		}
-//
-//	}
-//
-////	for Adding users
-//	public int saveUser(Login login) {
-//		String sql = "insert into login (username, password) values('" + login.getUserName() + "','"
-//				+ login.getPassword() + "')";
-//		return template.update(sql);
-//	}
+	@Autowired
+	TransferDao transferDao;
+
+	public void payBillsToBiller(Paybills payBills) {
+		Transfer account_details = transferDao.get_account_details(payBills.getAccount_id());
+		float balance_account = account_details.getBalance() - payBills.getAmount();
+
+		String sql = "update account_details set  balance=" + balance_account + " where account_id="
+				+ payBills.getAccount_id() + "";
+		template.update(sql);
+
+		sql = "insert into bill_payment (payee_name, Account_no, amount) VALUES ('" + payBills.getPayee_name() + "' , "
+				+ payBills.getAccount_no() + ", " + payBills.getAmount() + ");";
+		template.update(sql);
+	}
+
 }

@@ -2,10 +2,14 @@ package com.groupd.bankingsystem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import javax.validation.Valid;
 
 import com.groupd.bankingsystem.beans.Login;
 import com.groupd.bankingsystem.dao.LoginDao;
@@ -18,6 +22,7 @@ import com.groupd.bankingsystem.dao.LoginDao;
  */
 
 @Controller
+@SessionAttributes("user_id")
 public class LoginController {
 
 	@Autowired
@@ -27,29 +32,34 @@ public class LoginController {
 	public String loginPage() {
 		return "viewlogin";
 	}
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String goToIndexPage(Model model) {
+		return "index";
+	}
 
 	@RequestMapping(value = "/loginUser", method = RequestMethod.POST)
-	public String login(@RequestParam(name = "username") String username,
-			@RequestParam(name = "password") String password, HttpSession session) {
+	public String login(Model model, @RequestParam(name = "username") String username,
+			@RequestParam(name = "password") String password) {
 		Login login = new Login();
 		login.setUsername(username);
 		login.setPassword(password);
 		Login user = logindao.user_exists(login);
 		if (user != null) {
-			session.setAttribute("user_id", user.getUserId());
-			return "index";// will redirect to view login request mapping
+			model.addAttribute("user_id", user.getUserId());
+			return "redirect:/index";// will redirect to view login request mapping
 		} else {
 			return "redirect:/";
 		}
 	}
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
-	public String register(@RequestParam(name = "username") String username,
+	public String register(@Valid @RequestParam(name = "username") String username,
 			@RequestParam(name = "password") String password, @RequestParam(name = "customername") String customername,
 			@RequestParam(name = "fathername") String fathername, @RequestParam(name = "gender") String gender,
 			@RequestParam(name = "email") String email, @RequestParam(name = "address") String address,
 			@RequestParam(name = "postalcode") String postalcode, @RequestParam(name = "province") String province,
-			@RequestParam(name = "accountno") int accountno) {
+			@RequestParam(name = "accountno") int accountno, BindingResult br) {
 		Login login = new Login();
 		login.setUsername(username);
 		login.setPassword(password);
@@ -62,7 +72,15 @@ public class LoginController {
 		login.setProvince(province);
 		login.setAccountno(accountno);
 		logindao.saveUser(login);
-		return "redirect:/";
+		if(br.hasErrors())
+		{
+			return "viewlogin";
+		}
+		else
+		{
+			return "redirect:/";
+		}
+		
 	}
 
 }

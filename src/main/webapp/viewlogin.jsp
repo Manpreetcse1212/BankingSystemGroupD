@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">
 
 <h1>Create</h1>
 
@@ -13,7 +13,7 @@
 		</tr>
 		<tr>
 			<td>Password :</td>
-			<td><input name="password" type="password"/></td>
+			<td><input name="password" type="password" /></td>
 		</tr>
 		<tr>
 			<td></td>

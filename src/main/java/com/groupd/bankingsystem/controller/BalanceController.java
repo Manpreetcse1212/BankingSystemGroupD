@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.groupd.bankingsystem.beans.Balance;
 import com.groupd.bankingsystem.dao.BalanceDao;
@@ -22,17 +23,11 @@ import com.groupd.bankingsystem.dao.BalanceDao;
  */
 
 @Controller
+@SessionAttributes("Account_id")
 public class BalanceController {
 
 	@Autowired
 	BalanceDao balancedao;
-
-//	@RequestMapping(value="/viewbalance", method=RequestMethod.GET)
-//	public String balance(@ModelAttribute("balance") Balance balance)
-//	{
-//		balancedao.check_balance(balance);
-//		return "redirect:/viewbalance";
-//	}
 
 	@RequestMapping(value = "/viewbalance/{user_id}", method = RequestMethod.GET)
 	public String viewbalance(Model model, @PathVariable int user_id) {

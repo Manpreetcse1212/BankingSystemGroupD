@@ -54,29 +54,43 @@ public class LoginDao {
 				+ login.getEmail() + "','" + login.getAddress() + "','" + login.getPostalcode() + "','"
 				+ login.getProvince() + "'," + login.getAccountno() + ",'" + login.getUsername() + "','"
 				+ login.getPassword() + "')";
-		
+
 		template.update(sql);
-		 
-		
-		String sql_fetch = "select userid, Account_no from personal_details where username='" + login.getUsername() + "'";
-		Login login_new=template.queryForObject(sql_fetch, new RowMapper<Login>() {
-					@Override
-					public Login mapRow(ResultSet rs, int rowNum) throws SQLException {
-						// TODO Auto-generated method stub
-						Login login = new Login();
-						login.setUserId(rs.getInt(1));
-						return login;
-					}
-				});
-		
-		String sql_chequing = "insert into account_details (Account_No,balance,Account_type,userid) values"
-				+ "('" + login.getAccountno() + "'," + 0 + ",'Chequing'," + login_new.getUserId() + ")";
-		
+
+		String sql_fetch = "select userid, Account_no from personal_details where username='" + login.getUsername()
+				+ "'";
+		Login login_new = template.queryForObject(sql_fetch, new RowMapper<Login>() {
+			@Override
+			public Login mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+				Login login = new Login();
+				login.setUserId(rs.getInt(1));
+				return login;
+			}
+		});
+
+		String sql_chequing = "insert into account_details (Account_No,balance,Account_type,userid) values" + "('"
+				+ login.getAccountno() + "'," + 0 + ",'Chequing'," + login_new.getUserId() + ")";
+
 		template.update(sql_chequing);
-		
-		String sql_saving = "insert into account_details (Account_No,balance,Account_type,userid) values"
-				+ "('" + login.getAccountno() + "'," + 0 + ",'Saving'," + login_new.getUserId() + ")";
-		
+
+		String sql_saving = "insert into account_details (Account_No,balance,Account_type,userid) values" + "('"
+				+ login.getAccountno() + "'," + 0 + ",'Saving'," + login_new.getUserId() + ")";
+
 		template.update(sql_saving);
+	}
+
+	public int getUserBasedOnEmailAddress(String email) {
+		String sql_fetch = "select userid from personal_details where Email='" + email + "'";
+		Login login = template.queryForObject(sql_fetch, new RowMapper<Login>() {
+			@Override
+			public Login mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+				Login login = new Login();
+				login.setUserId(rs.getInt(1));
+				return login;
+			}
+		});
+		return login.getUserId();
 	}
 }
