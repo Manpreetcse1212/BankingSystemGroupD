@@ -4,8 +4,9 @@
 package com.groupd.bankingsystem.beans;
 
 /**
- * @author hp world
- *
+ * Date: 15.03.2022 Group D Member1: Manpreet kaur Member2: Manpreet Kaur
+ * Member3: Bhumikaben Manubhai Patel Member4: Ashikkumar Nareshbhai Patel
+ * Member5: Hardeep Kaur Chahal bean class for transaction_details table
  */
 public class Transaction {
 	private int fromUserId;

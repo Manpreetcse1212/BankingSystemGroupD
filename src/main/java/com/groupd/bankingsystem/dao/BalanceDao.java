@@ -25,6 +25,7 @@ public class BalanceDao {
 		this.template = template;
 	}
 
+	// Method used to check the current balance
 	public List<Balance> check_balance(int user_id) {
 
 		List<Balance> bal = template.query("select * from account_details where userid=" + user_id + " ",

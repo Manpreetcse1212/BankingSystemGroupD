@@ -7,94 +7,88 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Date: 15.03.2022
- * Group D 
- * Member1: Manpreet kaur
- * Member2: Manpreet Kaur
- * Member3: Bhumikaben Manubhai Patel
- * Member4: Ashikkumar Nareshbhai Patel
- * Member5: Hardeep Kaur Chahal 
- * bean class for Book table
+ * Date: 15.03.2022 Group D Member1: Manpreet kaur Member2: Manpreet Kaur
+ * Member3: Bhumikaben Manubhai Patel Member4: Ashikkumar Nareshbhai Patel
+ * Member5: Hardeep Kaur Chahal bean class for personal_details table
  */
 
 public class Login {
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String Username;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String Password;
-	
-	
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
+	private String username;
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
+	private String password;
+
 	private int userId;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
 	private String customerName;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
 	private String fatherName;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String Gender;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String Email;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String Address;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String Postalcode;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String Province;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private int Accountno;
-	
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
+	private String gender;
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
+	private String email;
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
+	private String address;
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
+	private String postalcode;
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
+	private String province;
+
+	@Min(value = 5, message = "required")
+	@Max(value = 20, message = "required")
+	@NotNull(message = "required field")
+	private int accountno;
+
 	private float balance;
-	
-	@Size(min=5,message="required")
-	@Size(max=20,message="required")
-	@NotNull(message="required field")
-	private String Accounttype;
-	
-	private int Accountid;
+
+	@Size(min = 5, message = "required")
+	@Size(max = 20, message = "required")
+	@NotNull(message = "required field")
+	private String accounttype;
+
+	private int accountid;
 
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 
 	public int getUserId() {
@@ -122,51 +116,51 @@ public class Login {
 	}
 
 	public String getGender() {
-		return Gender;
+		return gender;
 	}
 
 	public void setGender(String gender) {
-		Gender = gender;
+		this.gender = gender;
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 
 	public String getPostalcode() {
-		return Postalcode;
+		return postalcode;
 	}
 
 	public void setPostalcode(String postalcode) {
-		Postalcode = postalcode;
+		this.postalcode = postalcode;
 	}
 
 	public String getProvince() {
-		return Province;
+		return province;
 	}
 
 	public void setProvince(String province) {
-		Province = province;
+		this.province = province;
 	}
 
 	public int getAccountno() {
-		return Accountno;
+		return accountno;
 	}
 
 	public void setAccountno(int accountno) {
-		Accountno = accountno;
+		this.accountno = accountno;
 	}
 
 	public float getBalance() {
@@ -178,21 +172,27 @@ public class Login {
 	}
 
 	public String getAccounttype() {
-		return Accounttype;
+		return accounttype;
 	}
 
 	public void setAccounttype(String accounttype) {
-		Accounttype = accounttype;
+		this.accounttype = accounttype;
 	}
 
 	public int getAccountid() {
-		return Accountid;
+		return accountid;
 	}
 
 	public void setAccountid(int accountid) {
-		Accountid = accountid;
+		this.accountid = accountid;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Login [username=" + username + ", password=" + password + ", userId=" + userId + ", customerName="
+				+ customerName + ", fatherName=" + fatherName + ", gender=" + gender + ", email=" + email + ", address="
+				+ address + ", postalcode=" + postalcode + ", province=" + province + ", accountno=" + accountno
+				+ ", balance=" + balance + ", accounttype=" + accounttype + ", accountid=" + accountid + "]";
+	}
+
 }

@@ -29,7 +29,7 @@ public class TransferDao {
 
 	@Autowired
 	LoginDao loginDao;
-
+//method used to check the account details
 	public List<Transfer> check_account(int user_id) {
 
 		List<Transfer> transfer = template.query("select * from account_details where userid=" + user_id + " ",

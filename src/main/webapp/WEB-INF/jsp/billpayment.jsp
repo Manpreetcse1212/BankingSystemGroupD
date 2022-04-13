@@ -8,13 +8,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Pay Mobile Bill</title>
-<link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">
+<style>
+<%@include file="/WEB-INF/css/styles.css"%></style>
 </head>
-<body>
+<body style="background-image: url('https://paymentsystemreview.ca/wp-content/uploads/2019/12/the-canadian-banking-system.jpg');">
+
 	<h2>Pay Mobile Bill (Bill Payment)</h2>
 
 	<form:form method="post" action="doPayBills">
-		<table>
+		<table align="center" width="500px" height="250px">
 			<tr>
 				<td>Add payee :</td>
 				<td><form:input path="payee_name" /></td>

@@ -8,17 +8,18 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * @author hp world
- *
+ * Date: 15.03.2022 Group D Member1: Manpreet kaur Member2: Manpreet Kaur
+ * Member3: Bhumikaben Manubhai Patel Member4: Ashikkumar Nareshbhai Patel
+ * Member5: Hardeep Kaur Chahal bean class for account_details table
  */
 public class EditTransfer {
 
-	@NotNull(message = "Amount Required")
-	@Min(value = 1, message="Amount Required")
+	@NotNull(message = "Required")
+	@Min(value = 1, message="Required")
 	private Float amount;
 	
-	@NotNull(message = "Account Number Required")
-	@Size(min = 1, message="Account Number Required")
+	@NotNull(message = "Required")
+	@Size(min = 1, message="Required")
 	private String account_no;
 	private int account_id;
 

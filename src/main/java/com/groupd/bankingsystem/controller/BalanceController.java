@@ -29,6 +29,7 @@ public class BalanceController {
 	@Autowired
 	BalanceDao balancedao;
 
+	// This controller is used to check the balance 
 	@RequestMapping(value = "/viewbalance/{user_id}", method = RequestMethod.GET)
 	public String viewbalance(Model model, @PathVariable int user_id) {
 		List<Balance> balances = balancedao.check_balance(user_id);

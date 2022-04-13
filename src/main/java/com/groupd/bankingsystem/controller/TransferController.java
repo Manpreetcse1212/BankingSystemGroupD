@@ -28,7 +28,7 @@ import com.groupd.bankingsystem.dao.TransferDao;
  * Member5: Hardeep Kaur Chahal This controller is used to hand post and get
  * methods for registering and showing users
  */
-
+// this controller is used for add funds, withdraw funds, transfer funds, interac e-transfer
 @Controller
 @SessionAttributes("account_id")
 public class TransferController {
@@ -45,14 +45,14 @@ public class TransferController {
 
 	/* It updates model object. */
 	@RequestMapping(value = "/transferfund/{account_id}", method = RequestMethod.GET)
-	public String edittransfer(@ModelAttribute("command") EditTransfer transfer, @PathVariable int account_id,
+	public String edittransfer(@ModelAttribute("transfer") EditTransfer transfer, @PathVariable int account_id,
 			Model model) {
 		model.addAttribute("account_id", account_id);
 		return "editransfer";
 	}
 
 	@RequestMapping(value = "/doTransfer", method = RequestMethod.POST)
-	public String doTransfer(@Valid @ModelAttribute("command") EditTransfer transfer, BindingResult br,
+	public String doTransfer(@Valid @ModelAttribute("transfer") EditTransfer transfer, BindingResult br,
 			HttpSession session) {
 		if (br.hasErrors()) {
 			return "editransfer";

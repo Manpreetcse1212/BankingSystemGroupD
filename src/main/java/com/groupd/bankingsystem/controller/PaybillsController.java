@@ -25,7 +25,7 @@ import com.groupd.bankingsystem.dao.TransferDao;
  * Member5: Hardeep Kaur Chahal This controller is used to hand post and get
  * methods for registering and showing users
  */
-
+// This controller is used for adding paying utitlity bills feature
 @Controller
 public class PaybillsController {
 
@@ -50,11 +50,11 @@ public class PaybillsController {
 	}
 
 	@RequestMapping(value = "/doPayBills", method = RequestMethod.POST)
-	public String doPayBills(@Valid @ModelAttribute("command") Paybills paybills, BindingResult br) {
+	public String doPayBills(@Valid @ModelAttribute("command") Paybills paybills, BindingResult br, HttpSession session) {
 		if (br.hasErrors()) {
 			return "billpayment";
 		} else {
-			paybillsDao.payBillsToBiller(paybills);
+			paybillsDao.payBillsToBiller(paybills, (Integer) session.getAttribute("user_id"));
 			return "redirect:/index";
 		}
 	}

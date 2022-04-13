@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 /**
  * Date: 15.03.2022 Group D Member1: Manpreet kaur Member2: Manpreet Kaur
  * Member3: Bhumikaben Manubhai Patel Member4: Ashikkumar Nareshbhai Patel
- * Member5: Hardeep Kaur Chahal bean class for Book table
+ * Member5: Hardeep Kaur Chahal bean class for account_details table
  */
 
 public class Balance {

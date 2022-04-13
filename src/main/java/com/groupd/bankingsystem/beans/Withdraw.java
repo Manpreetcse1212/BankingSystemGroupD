@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
  * Member3: Bhumikaben Manubhai Patel
  * Member4: Ashikkumar Nareshbhai Patel
  * Member5: Hardeep Kaur Chahal 
- * bean class for Book table
+ * bean class for personal_details table
  */
 
 public class Withdraw {

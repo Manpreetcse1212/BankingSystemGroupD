@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.groupd.bankingsystem.beans.Login;
+import com.groupd.bankingsystem.beans.LoginForm;
 
 /**
  * Date: 15.03.2022 Group D Member1: Manpreet kaur Member2: Manpreet Kaur
@@ -23,8 +24,8 @@ public class LoginDao {
 		this.template = template;
 	}
 
-//	login
-	public Login user_exists(Login login) {
+//	method used to check whether the user exists or not 
+	public Login user_exists(LoginForm login) {
 		String sql = "select * from personal_details where username=? and password=?";
 
 		List<Login> users = template.query("select username, password, userid from personal_details where username='"

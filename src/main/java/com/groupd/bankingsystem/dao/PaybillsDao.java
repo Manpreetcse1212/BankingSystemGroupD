@@ -22,8 +22,8 @@ public class PaybillsDao {
 
 	@Autowired
 	TransferDao transferDao;
-
-	public void payBillsToBiller(Paybills payBills) {
+// method used for paying bills
+	public void payBillsToBiller(Paybills payBills, int user_id) {
 		Transfer account_details = transferDao.get_account_details(payBills.getAccount_id());
 		float balance_account = account_details.getBalance() - payBills.getAmount();
 
@@ -33,6 +33,12 @@ public class PaybillsDao {
 
 		sql = "insert into bill_payment (payee_name, Account_no, amount) VALUES ('" + payBills.getPayee_name() + "' , "
 				+ payBills.getAccount_no() + ", " + payBills.getAmount() + ");";
+		template.update(sql);
+
+		sql = "insert into transaction_details (FromUserId, ToUserId, date, type, amount, "
+				+ "From_Acc_Id, To_Acc_Id) VALUES (" + user_id + "," + " " + user_id + ", SYSDATE(), 'BILL-PAY', "
+				+ payBills.getAmount() + ", " + account_details.getAccount_id() + ", " + account_details.getAccount_id()
+				+ ");";
 		template.update(sql);
 	}
 
